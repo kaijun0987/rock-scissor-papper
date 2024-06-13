@@ -1,4 +1,6 @@
 #import "AppDelegate.h"
+#import <CodePush/CodePush.h>
+
 
 #import <React/RCTBundleURLProvider.h>
 
@@ -24,7 +26,7 @@
 #if DEBUG
   return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"];
 #else
-  return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+  return return [CodePush bundleURL];
 #endif
 }
 
