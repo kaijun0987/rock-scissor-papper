@@ -21,15 +21,27 @@ export function GameButton({
   gameButtonType,
   gameLevel,
 }: ButtonProps) {
+  const handleButtonColor = (gameType: TGameType) => {
+    switch (gameType) {
+      case 'scissor':
+        return '#EB9F0E';
+      case 'spock':
+        return '#3FB7CD';
+      case 'paper':
+        return '#4664F4';
+      case 'lizard':
+        return '#834EE3';
+      case 'rock':
+        return '#DB2E4D';
+      default:
+        return '#1F3757';
+    }
+  };
+
   const CustomIcon = createIconSetFromFontello(fontelloConfig);
   const dependingStyle = {
-    borderColor:
-      (gameButtonType === 'scissor' && '#EB9F0E') ||
-      (gameButtonType === 'spock' && '#3FB7CD') ||
-      (gameButtonType === 'paper' && '#4664F4') ||
-      (gameButtonType === 'lizard' && '#834EE3') ||
-      (gameButtonType === 'rock' && '#DB2E4D') ||
-      '#1F3757',
+    borderColor: handleButtonColor(gameButtonType!),
+
     backgroundColor: gameButtonType ? '#F3F3F3' : '#0000001A',
     height:
       gameLevel === 'Easy'
